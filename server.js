@@ -2,7 +2,6 @@
 const config = require("./config")
 const express = require('express')
 const app = express()
-const port = 3000 || process.env.PORT ;
 
 const client = require('twilio')(config.accountSID, config.authToken)
 
@@ -84,6 +83,6 @@ app.get('/verify', (req, res) => {
 })
 
 // listen to the server at 3000 port
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is running at ${port}`)
 })
